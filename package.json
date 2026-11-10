@@ -1,0 +1,9 @@
+{
+  "name": "kurio-mobile",
+  "private": true,
+  "workspaces": ["pacotes/*", "app"],
+  "scripts": {
+    "regras:build": "npm run build -w @calvarenga92/kurio-regras",
+    "regras:test": "npm test -w @calvarenga92/kurio-regras"
+  }
+}

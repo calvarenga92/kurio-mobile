@@ -1,0 +1,37 @@
+{
+  "name": "@calvarenga92/kurio-regras",
+  "version": "0.1.0",
+  "description": "Regras de negócio do Kurio compartilhadas entre web e mobile: dinheiro em 18 casas, cotação e checkout idempotente.",
+  "author": "Claudio Alvarenga",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calvarenga92/kurio-mobile.git",
+    "directory": "pacotes/regras"
+  },
+  "publishConfig": { "access": "public" },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean --target es2020",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "tsup": "^9.0.0",
+    "typescript": "~6.0.3",
+    "vitest": "^5.1.0"
+  }
+}
